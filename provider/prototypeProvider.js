@@ -63,13 +63,13 @@ class PrototypeProvider {
 
   deleteFunctions() {
     return new BbPromise((resolve, reject) => {
-      request.del(this.serviceBaseUri + '/functions', (err, res) {
+      request.del(this.serviceBaseUri + '/functions', (err, res) => {
         if (err || res.statusCode != 204) {
           reject(err);
         } else {
           resolve();
         }
-      })
+      });
     });
   }
 }
