@@ -4,7 +4,7 @@ module.exports = {
   createFunction () {
     const functionName = this.options.function;
 
-    const functionObject = serverless.service.getFunction(functionName);
+    const functionObject = this.serverless.service.getFunction(functionName);
 
     return this.provider.generateZipString(functionName, functionObject.handler)
       .then(zipString => this.provider.uploadFunction(functionName, zipString, functionObject));

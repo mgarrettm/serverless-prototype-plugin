@@ -42,7 +42,7 @@ class PrototypeProvider {
       this.serverless.cli.log(`Uploading function: ${functionName}`);
 
       const options = {
-        'url': this.serviceBaseUri + '/functions',
+        'url': this.serviceBaseUri + 'functions',
         'headers': {
           'Content-Type': 'application/json'
         },
@@ -65,7 +65,8 @@ class PrototypeProvider {
 
   deleteFunctions() {
     return new BbPromise((resolve, reject) => {
-      request.del(this.serviceBaseUri + '/functions', (err, res) => {
+      request.delete(this.serviceBaseUri + 'functions', (err, res) => {
+        console.log(res);
         if (err || res.statusCode != 204) {
           reject(err);
         } else {
