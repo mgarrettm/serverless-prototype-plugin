@@ -3,7 +3,7 @@
 const BbPromise = require('bluebird');
 const deleteFunctions = require('./lib/deleteFunctions');
 
-class AzureRemove {
+class PrototypeRemove {
   constructor (serverless, options) {
     this.serverless = serverless;
     this.options = options;
