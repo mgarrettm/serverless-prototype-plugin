@@ -66,7 +66,6 @@ class PrototypeProvider {
   deleteFunctions() {
     return new BbPromise((resolve, reject) => {
       request.delete(this.serviceBaseUri + 'functions', (err, res) => {
-        console.log(res);
         if (err || res.statusCode != 204) {
           reject(err);
         } else {
