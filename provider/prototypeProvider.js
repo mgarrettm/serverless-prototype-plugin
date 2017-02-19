@@ -23,7 +23,7 @@ class PrototypeProvider {
   generateZipString(functionName, handlerPath) {
     return new BbPromise((resolve, reject) => {
       this.serverless.cli.log(`Packaging function: ${functionName}`);
-      const absoluteHandlerPath = path.join(this.serverless.config.servicePath, filePath);
+      const absoluteHandlerPath = path.join(this.serverless.config.servicePath, handlerPath);
       const handlerData = fs.readFileSync(absoluteHandlerPath);
 
       const zip = new JSZip();
