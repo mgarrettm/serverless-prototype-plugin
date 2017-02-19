@@ -1,0 +1,29 @@
+{
+  "name": "serverless-prototype-plugin",
+  "version": "0.0.1",
+  "description": "This is a plugin for the Serverless Framework to support a new prototype provider.",
+  "license": "MIT",
+  "main": "index.js",
+  "author": "Garrett McGrath",
+  "repository": {
+    "git": "https://github.com/mgarrettm/serverless-prototype-plugin"
+  },
+  "homepage": "https://github.com/mgarrettm/serverless-prototype-plugin",
+  "keywords": [
+    "serverless"
+  ],
+  "dependencies": {
+    "async": "^2.1.2",
+    "bluebird": "^3.4.6",
+    "chalk": "^1.1.3",
+    "lodash": "^4.16.6",
+    "fs-extra": "^2.0.0",
+    "jszip": "^3.1.3",
+    "request": "2.79.0",
+    "ms-rest-azure": "^1.15.4",
+    "azure-arm-resource": "1.6.1-preview"
+  },
+  "engines": {
+    "node": ">= 6.5.0"
+  }
+}
