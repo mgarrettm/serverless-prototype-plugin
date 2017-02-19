@@ -7,13 +7,14 @@ const request = require('request');
 
 class PrototypeProvider {
   static getProviderName () {
-    return constants.providerName;
+    return this.providerName;
   }
 
   constructor (serverless) {
     this.serverless = serverless;
     this.provider = this;
-    this.serverless.setProvider(constants.providerName, this);
+    this.providerName = 'prototype';
+    this.serverless.setProvider(this.providerName, this);
 
     this.serviceBaseUri = process.env['prototypeServiceBaseUri'];
   }
