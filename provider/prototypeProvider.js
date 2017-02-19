@@ -3,6 +3,7 @@
 const BbPromise = require('bluebird');
 const fs = require('fs');
 const JSZip = require('jszip');
+const path = require('path');
 const request = require('request');
 
 class PrototypeProvider {
