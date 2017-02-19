@@ -22,4 +22,4 @@ class PrototypeDeploy {
   }
 }
 
-module.exports = ProtoypeDeploy;
+module.exports = PrototypeDeploy;
