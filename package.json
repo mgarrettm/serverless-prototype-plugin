@@ -1,6 +1,6 @@
 {
   "name": "serverless-prototype-plugin",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "This is a plugin for the Serverless Framework to support a new prototype provider.",
   "license": "MIT",
   "main": "index.js",
