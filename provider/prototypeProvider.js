@@ -58,7 +58,8 @@ class PrototypeProvider {
           reject(err);
         } else {
           let functionObject = JSON.parse(body);
-          this.serverless.cli.log(`${functionName} endpoint: POST ${this.serviceBaseUri}functions/${functionObject.id}/invoke`)
+          console.log(functionObject);
+          this.serverless.cli.log(`${functionName} endpoint: POST ${this.serviceBaseUri}functions/${functionObject.Id}/invoke`)
           resolve();
         }
       });
