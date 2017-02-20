@@ -57,6 +57,8 @@ class PrototypeProvider {
         if (err || res.statusCode != 201) {
           reject(err);
         } else {
+          let functionObject = JSON.parse(body);
+          this.serverless.cli.log(`${functionName} endpoint: POST ${this.serviceBaseUri}functions/${functionObject.id}/invoke`)
           resolve();
         }
       });
