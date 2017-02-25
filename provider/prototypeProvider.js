@@ -5,6 +5,7 @@ const fs = require('fs');
 const JSZip = require('jszip');
 const path = require('path');
 const request = require('request');
+const YAML = require('yamljs');
 
 class PrototypeProvider {
   static getProviderName () {
@@ -59,15 +60,35 @@ class PrototypeProvider {
         } else {
           let functionObject = JSON.parse(body);
           this.serverless.cli.log(`${functionName} endpoint: POST ${this.serviceBaseUri}functions/${functionObject.id}/invoke`);
-          resolve();
+          resolve(functionObject);
         }
       });
     });
   }
 
-  deleteFunctions() {
+  saveFunctionId(functionName, functionId) {
     return new BbPromise((resolve, reject) => {
-      request.delete(this.serviceBaseUri + 'functions', (err, res) => {
+      let ymlPath = path.join(this.serverless.config.servicePath, 'serverless.yml');
+  
+      YAML.load(ymlPath, yml => {
+        yml.functions[functionName].id = functionId;
+
+        let ymlString = YAML.stringify(yml, null, 4);
+
+        fs.writeFile(ymlPath, ymlString, err => {
+          if (err) {
+            rejest(err);
+          } else {
+            resolve();
+          }
+        });
+      });
+    });
+  }
+
+  deleteFunction(functionId) {
+    return new BbPromise((resolve, reject) => {
+      request.delete(`${this.serviceBaseUri}functions/${functionId}`, (err, res) => {
         if (err || res.statusCode != 204) {
           reject(err);
         } else {
