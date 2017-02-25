@@ -11,7 +11,7 @@ module.exports = {
 
       createFunctionPromises.push(this.provider.generateZipString(functionName, functionObject.handler)
         .then(zipString => this.provider.uploadFunction(functionName, zipString, functionObject))
-        .then(functionObject => this.provider.saveFunctionId(functionName, functionObject.functionId)));
+        .then(functionObject => this.provider.saveFunctionId(functionName, functionObject.id)));
     });
 
     return BbPromise.all(createFunctionPromises);
