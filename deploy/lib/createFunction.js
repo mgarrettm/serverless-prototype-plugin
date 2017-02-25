@@ -6,7 +6,8 @@ module.exports = {
 
     const functionObject = this.serverless.service.getFunction(functionName);
 
-    return this.provider.generateZipString(functionName, functionObject.handler)
+    return this.provider.deleteFunction(functionObject.id)
+      .then(this.provider.generateZipString(functionName, functionObject.handler))
       .then(zipString => this.provider.uploadFunction(functionName, zipString, functionObject))
       .then(functionObject => this.provider.saveFunctionId(functionName, functionObject.id));
   }
